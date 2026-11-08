@@ -1,0 +1,28 @@
+{
+  "jobs": [
+    {
+      "uuid": "497bb328-db13-11f1-a043-fe3f2b19df01",
+      "prompt": "Ultra-photorealistic cinematic photograph of a lone jungle explorer standing deep inside a vast tropical rainforest. The person is wearing rugged outdoor expedition clothing, a weathered khaki shirt, dark cargo pants, hiking boots, and a backpack. Surrounded by enormous tropical trees, dense green vegetation, giant monstera leaves, hanging vines, and exotic plants. Sunlight streams through the thick rainforest canopy, creating beautiful golden rays and atmospheric mist. A small river flows through the jungle in the background, with colorful tropical birds perched on branches. The explorer is looking into the mysterious depths of the rainforest. Incredible environmental detail, realistic skin textures, natural lighting, dramatic cinematic composition, professional wildlife photography, 8K resolution, ultra-detailed, photorealistic, 16:9 aspect ratio. No text, no logos, no watermarks.",
+      "kind": "image",
+      "model": "nano-banana-2-lite",
+      "createdAt": "2026-11-08T01:25:25.410Z",
+      "status": "Queued"
+    },
+    {
+      "uuid": "56063bd2-db12-11f1-9e22-b611579c9dd4",
+      "prompt": "A dog running on ice. cinematic film look, deliberate camera movement, dramatic lighting, rich atmosphere, detailed composition, professional color grading. Keep the main subject visually consistent throughout. Make the action clear and easy to follow, with a strong opening frame and a polished ending. Avoid unwanted text, logos, watermarks, visual glitches, and sudden scene changes.",
+      "kind": "video",
+      "model": "veo-3.1-fast",
+      "createdAt": "2026-11-08T01:18:37.033Z",
+      "status": "Queued"
+    },
+    {
+      "uuid": "38965370-db12-11f1-998c-ee721b7aa914",
+      "prompt": "A dog running on ice. cinematic film look, deliberate camera movement, dramatic lighting, rich atmosphere, detailed composition, professional color grading. Keep the main subject visually consistent throughout. Make the action clear and easy to follow, with a strong opening frame and a polished ending. Avoid unwanted text, logos, watermarks, visual glitches, and sudden scene changes.",
+      "kind": "video",
+      "model": "muse-ai-video",
+      "createdAt": "2026-11-08T01:17:49.525Z",
+      "status": "Queued"
+    }
+  ]
+}
