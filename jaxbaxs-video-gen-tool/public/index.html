@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,97 +7,204 @@
 <title>Jaxbax's Video Gen Tool</title>
 <style>
 :root{--bg:#09090c;--panel:#111116;--panel2:#17171e;--line:#292932;--text:#f6f3f4;--muted:#a09aa2;--red:#ef3340;--red2:#b81728;--soft:#ff5a66;--green:#42d69b;--radius:18px}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 15% -10%,#421018 0,transparent 36%),radial-gradient(ellipse at 100% 20%,#241014 0,transparent 30%),var(--bg);color:var(--text);font:15px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif}
-button,input,textarea,select{font:inherit}button{cursor:pointer}
-.shell{max-width:1440px;margin:auto;padding:22px 28px 56px}.top{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:30px}
-.brand{display:flex;align-items:center;gap:13px}.logo{width:46px;height:46px;border-radius:14px;background:linear-gradient(145deg,#ff5260,#a80d22);display:grid;place-items:center;box-shadow:0 8px 28px #e21c383b;font-weight:950;font-size:22px;letter-spacing:-2px}
-.brand h1{font-size:19px;margin:0;letter-spacing:-.5px}.brand p{margin:2px 0 0;color:var(--muted);font-size:12px}
-.topright{display:flex;align-items:center;gap:10px}.credit{border:1px solid var(--line);background:#121217;border-radius:999px;padding:9px 14px;font-size:12px;color:#ddd}.credit b{color:#fff}.dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--green);margin-right:7px}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(ellipse at 15% -10%,#421018 0,transparent 36%),radial-gradient(ellipse at 100% 20%,#241014 0,transparent 30%),var(--bg);color:var(--text);font:15px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif}
+button,input,textarea,select{font:inherit}
+button{cursor:pointer}
+.shell{max-width:1440px;margin:auto;padding:22px 28px 56px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:30px}
+.brand{display:flex;align-items:center;gap:13px}
+.logo{width:46px;height:46px;border-radius:14px;background:linear-gradient(145deg,#ff5260,#a80d22);display:grid;place-items:center;box-shadow:0 8px 28px #e21c383b;font-weight:950;font-size:22px;letter-spacing:-2px}
+.brand h1{font-size:19px;margin:0;letter-spacing:-.5px}
+.brand p{margin:2px 0 0;color:var(--muted);font-size:12px}
+.topright{display:flex;align-items:center;gap:10px}
+.credit{border:1px solid var(--line);background:#121217;border-radius:999px;padding:9px 14px;font-size:12px;color:#ddd}
+.credit b{color:#fff}
+.dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--green);margin-right:7px}
 .layout{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(360px,.88fr);gap:22px;align-items:start}
 .panel{background:linear-gradient(160deg,#15151b,#101015 70%);border:1px solid var(--line);border-radius:var(--radius);box-shadow:0 16px 55px #0006;overflow:hidden}
-.panelhead{padding:20px 22px 0}.eyebrow{font-size:10px;text-transform:uppercase;letter-spacing:1.8px;color:var(--soft);font-weight:800}.panelhead h2{font-size:22px;letter-spacing:-.7px;margin:5px 0 3px}.sub{color:var(--muted);font-size:13px;margin:0}
-.tabs{display:flex;gap:7px;padding:18px 22px 0}.tab{border:1px solid var(--line);background:#15151c;color:#aaa;padding:10px 17px;border-radius:11px;font-weight:700;font-size:13px}.tab.active{background:linear-gradient(120deg,#f04450,#b8172c);border-color:#fa5864;color:white;box-shadow:0 6px 20px #e21c3830}
-.form{padding:20px 22px 22px}.field{margin-bottom:17px}.labelrow{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}.label{font-size:12px;color:#d9d4d8;font-weight:750}.hint{font-size:11px;color:#827c84}
+.panelhead{padding:20px 22px 0}
+.eyebrow{font-size:10px;text-transform:uppercase;letter-spacing:1.8px;color:var(--soft);font-weight:800}
+.panelhead h2{font-size:22px;letter-spacing:-.7px;margin:5px 0 3px}
+.sub{color:var(--muted);font-size:13px;margin:0}
+.tabs{display:flex;gap:7px;padding:18px 22px 0}
+.tab{border:1px solid var(--line);background:#15151c;color:#aaa;padding:10px 17px;border-radius:11px;font-weight:700;font-size:13px}
+.tab.active{background:linear-gradient(120deg,#f04450,#b8172c);border-color:#fa5864;color:white;box-shadow:0 6px 20px #e21c3830}
+.form{padding:20px 22px 22px}
+.field{margin-bottom:17px}
+.labelrow{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.label{font-size:12px;color:#d9d4d8;font-weight:750}
+.hint{font-size:11px;color:#827c84}
 select,input[type=text],textarea{width:100%;background:#0c0c11;border:1px solid #30303a;border-radius:11px;color:#f4f0f2;padding:12px 13px;outline:none;transition:.18s}
 select:focus,input:focus,textarea:focus{border-color:#ed4653;box-shadow:0 0 0 3px #ed33401c}
-textarea{min-height:142px;resize:vertical;line-height:1.55}textarea::placeholder{color:#68636b}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.upload{border:1px dashed #48404a;border-radius:12px;padding:14px;background:#0d0d12;display:flex;align-items:center;gap:12px}.upload input{max-width:100%;font-size:12px;color:#aaa}.uploadicon{width:38px;height:38px;display:grid;place-items:center;border-radius:10px;background:#321319;color:#ff6872;font-size:19px}
-.generate{width:100%;border:0;border-radius:12px;padding:14px 18px;background:linear-gradient(110deg,#ff4a56,#bd1028);color:white;font-weight:850;letter-spacing:.1px;box-shadow:0 9px 25px #dc203a3b;transition:.18s}.generate:hover{filter:brightness(1.1);transform:translateY(-1px)}.generate:disabled{opacity:.55;cursor:wait;transform:none}
+textarea{min-height:142px;resize:vertical;line-height:1.55}
+textarea::placeholder{color:#68636b}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.upload{border:1px dashed #48404a;border-radius:12px;padding:14px;background:#0d0d12;display:flex;align-items:center;gap:12px}
+.upload input{max-width:100%;font-size:12px;color:#aaa}
+.uploadicon{width:38px;height:38px;display:grid;place-items:center;border-radius:10px;background:#321319;color:#ff6872;font-size:19px}
+.generate{width:100%;border:0;border-radius:12px;padding:14px 18px;background:linear-gradient(110deg,#ff4a56,#bd1028);color:white;font-weight:850;letter-spacing:.1px;box-shadow:0 9px 25px #dc203a3b;transition:.18s}
+.generate:hover{filter:brightness(1.1);transform:translateY(-1px)}
+.generate:disabled{opacity:.55;cursor:wait;transform:none}
 .costnote{margin:11px 0 0;text-align:center;color:#8f8991;font-size:11px}
-.rightcol{display:grid;gap:18px}.preview{min-height:360px;display:flex;flex-direction:column}.previewarea{padding:18px;flex:1;display:grid;place-items:center;min-height:290px}
-.empty{max-width:260px;text-align:center;color:#8b858e}.emptyicon{width:62px;height:62px;border-radius:20px;background:#2c1118;border:1px solid #52202a;display:grid;place-items:center;margin:0 auto 14px;color:#ff6470;font-size:25px}.empty b{display:block;color:#ddd5db;margin-bottom:5px}.empty span{font-size:12px}
-.result{width:100%;max-height:520px;border-radius:13px;object-fit:contain;background:#08080b}.result video{width:100%;max-height:520px;border-radius:13px;background:#08080b}.result img{max-width:100%;max-height:520px;border-radius:13px;object-fit:contain}
-.statusline{padding:13px 18px;border-top:1px solid var(--line);font-size:12px;color:#aaa;display:flex;justify-content:space-between;gap:10px}.statusline strong{color:#eee}
-.history{padding:18px}.historytop{display:flex;justify-content:space-between;align-items:center;margin-bottom:13px}.historytop h3{font-size:14px;margin:0}.refresh{background:#202027;border:1px solid #33333d;color:#ddd;border-radius:9px;padding:7px 10px;font-size:11px}
-.historyfilters{display:flex;gap:7px;margin:0 0 8px}.historyfilter{border:1px solid #33333d;background:#17171e;color:#aaa;border-radius:999px;padding:6px 12px;font-size:11px}.historyfilter.active{background:#42151d;border-color:#a72b3b;color:#fff}.historyitem{display:flex;gap:11px;align-items:center;padding:10px 7px;border-top:1px solid #25252d;cursor:pointer;border-radius:9px}.historyitem:hover{background:#1c171d}.historyitem:focus{outline:2px solid #ef3340;outline-offset:2px}.thumb{width:58px;height:48px;flex:0 0 auto;border-radius:8px;background:#29232a;object-fit:cover;display:grid;place-items:center;color:#aaa;overflow:hidden}.thumb img{width:100%;height:100%;object-fit:cover}.histmeta{min-width:0;flex:1}.histmeta b{font-size:12px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.histmeta small{font-size:10px;color:#89828b}.pill{font-size:10px;border-radius:99px;padding:4px 8px;background:#24232b;color:#bcb6bd}.pill.done{color:#60e3ad;background:#10271f}.pill.fail{color:#ff7a83;background:#35141a}.historyactions{display:flex;justify-content:center;gap:8px;padding-top:12px}.historyactions button{background:#202027;border:1px solid #33333d;color:#eee;border-radius:9px;padding:8px 12px;font-size:11px}.historyactions button:disabled{opacity:.4;cursor:not-allowed}
-.footer{margin-top:22px;color:#6f6971;text-align:center;font-size:11px}.toast{position:fixed;right:22px;bottom:22px;max-width:390px;background:#21151a;border:1px solid #71303a;color:#fff;padding:13px 16px;border-radius:12px;box-shadow:0 12px 40px #0009;display:none;z-index:5;font-size:13px}.toast.show{display:block}
-@media(max-width:900px){.layout{grid-template-columns:1fr}.rightcol{grid-template-columns:1fr}.shell{padding:16px}.top{align-items:flex-start}.topright{flex-wrap:wrap;justify-content:flex-end}}
+.rightcol{display:grid;gap:18px}
+.preview{min-height:360px;display:flex;flex-direction:column}
+.previewarea{padding:18px;flex:1;display:grid;place-items:center;min-height:290px}
+.empty{max-width:260px;text-align:center;color:#8b858e}
+.emptyicon{width:62px;height:62px;border-radius:20px;background:#2c1118;border:1px solid #52202a;display:grid;place-items:center;margin:0 auto 14px;color:#ff6470;font-size:25px}
+.empty b{display:block;color:#ddd5db;margin-bottom:5px}
+.empty span{font-size:12px}
+.result{width:100%;max-height:520px;border-radius:13px;object-fit:contain;background:#08080b}
+.result video{width:100%;max-height:520px;border-radius:13px;background:#08080b}
+.result img{max-width:100%;max-height:520px;border-radius:13px;object-fit:contain}
+.statusline{padding:13px 18px;border-top:1px solid var(--line);font-size:12px;color:#aaa;display:flex;justify-content:space-between;gap:10px}
+.statusline strong{color:#eee}
+.history{padding:18px}
+.historytop{display:flex;justify-content:space-between;align-items:center;margin-bottom:13px}
+.historytop h3{font-size:14px;margin:0}
+.refresh{background:#202027;border:1px solid #33333d;color:#ddd;border-radius:9px;padding:7px 10px;font-size:11px}
+.historyfilters{display:flex;gap:7px;margin:0 0 8px}
+.historyfilter{border:1px solid #33333d;background:#17171e;color:#aaa;border-radius:999px;padding:6px 12px;font-size:11px}
+.historyfilter.active{background:#42151d;border-color:#a72b3b;color:#fff}
+.historyitem{display:flex;gap:11px;align-items:center;padding:10px 7px;border-top:1px solid #25252d;cursor:pointer;border-radius:9px}
+.historyitem:hover{background:#1c171d}
+.historyitem:focus{outline:2px solid #ef3340;outline-offset:2px}
+.thumb{width:58px;height:48px;flex:0 0 auto;border-radius:8px;background:#29232a;object-fit:cover;display:grid;place-items:center;color:#aaa;overflow:hidden}
+.thumb img{width:100%;height:100%;object-fit:cover}
+.histmeta{min-width:0;flex:1}
+.histmeta b{font-size:12px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.histmeta small{font-size:10px;color:#89828b}
+.pill{font-size:10px;border-radius:99px;padding:4px 8px;background:#24232b;color:#bcb6bd}
+.pill.done{color:#60e3ad;background:#10271f}
+.pill.fail{color:#ff7a83;background:#35141a}
+.historyactions{display:flex;justify-content:center;gap:8px;padding-top:12px}
+.historyactions button{background:#202027;border:1px solid #33333d;color:#eee;border-radius:9px;padding:8px 12px;font-size:11px}
+.historyactions button:disabled{opacity:.4;cursor:not-allowed}
+.footer{margin-top:22px;color:#6f6971;text-align:center;font-size:11px}
+.toast{position:fixed;right:22px;bottom:22px;max-width:390px;background:#21151a;border:1px solid #71303a;color:#fff;padding:13px 16px;border-radius:12px;box-shadow:0 12px 40px #0009;display:none;z-index:1001;font-size:13px}
+.toast.show{display:block}
+.toolrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:9px}
+.toolbtn{background:#241319;border:1px solid #5b2730;color:#ffb4bb;border-radius:9px;padding:8px 11px;font-size:11px;font-weight:750}
+.toolbtn:disabled{opacity:.5;cursor:not-allowed}
+.queueitem{display:flex;gap:10px;align-items:center;padding:10px 6px;border-top:1px solid #28232a}
+.queueitem .qmeta{min-width:0;flex:1}
+.queueitem b{display:block;font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.queueitem small{color:#8f8790;font-size:10px}
+.queuebadge{font-size:10px;border-radius:99px;background:#2b2026;color:#e8c2c6;padding:4px 8px}
+.queuebadge.done{background:#10271f;color:#60e3ad}
+.queuebadge.fail{background:#35141a;color:#ff7a83}
+.assistantresult{margin-top:10px;padding:12px;border:1px solid #4c252d;border-radius:12px;background:#1c1015;color:#e7dce1;font-size:12px;white-space:pre-wrap}
+.assistantresult[hidden]{display:none}
 
-toolrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:9px}.toolbtn{background:#241319;border:1px solid #5b2730;color:#ffb4bb;border-radius:9px;padding:8px 11px;font-size:11px;font-weight:750}.toolbtn:disabled{opacity:.5;cursor:not-allowed}.queueitem{display:flex;gap:10px;align-items:center;padding:10px 6px;border-top:1px solid #28232a}.queueitem .qmeta{min-width:0;flex:1}.queueitem b{display:block;font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.queueitem small{color:#8f8790;font-size:10px}.queuebadge{font-size:10px;border-radius:99px;background:#2b2026;color:#e8c2c6;padding:4px 8px}.queuebadge.done{background:#10271f;color:#60e3ad}.queuebadge.fail{background:#35141a;color:#ff7a83}.assistantresult{margin-top:10px;padding:12px;border:1px solid #4c252d;border-radius:12px;background:#1c1015;color:#e7dce1;font-size:12px;white-space:pre-wrap}.assistantresult[hidden]{display:none}
+/* SECRET BOT FLAP GAME */
+#botFlapSecret{position:fixed;right:14px;bottom:14px;z-index:100;width:43px;height:43px;border-radius:50%;border:1px solid #65313b;background:#171116;color:white;font-size:23px;cursor:pointer;opacity:.55;transition:.2s}
+#botFlapSecret:hover{opacity:1;transform:scale(1.12);box-shadow:0 0 20px #ef334066}
+#botFlapOverlay{position:fixed;inset:0;z-index:999;display:none;align-items:center;justify-content:center;padding:15px;background:#050508ed}
+#botFlapOverlay.open{display:flex}
+#botFlapGame{width:min(950px,100%);background:#111116;border:1px solid #63303a;border-radius:18px;overflow:hidden;box-shadow:0 20px 80px #000}
+.bot-game-head{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;gap:10px}
+.bot-game-head h2{margin:0;font-size:17px;color:white}
+.bot-game-head button,#botRestart{background:#a91d31;border:0;border-radius:9px;color:white;padding:9px 14px;cursor:pointer;font-weight:bold}
+#botCanvas{display:block;width:100%;height:auto;max-height:65vh;background:#171923;touch-action:manipulation;cursor:pointer}
+.bot-game-info{padding:12px;text-align:center;color:#aaa;font-size:12px}
+.bot-game-info strong{color:#ff6470}
 
-@media(max-width:560px){.brand h1{font-size:16px}.credit{font-size:10px}.grid2{grid-template-columns:1fr}.grid3{grid-template-columns:1fr 1fr}.panelhead,.form{padding-left:16px;padding-right:16px}.tabs{padding-left:16px;padding-right:16px}}
+@media(max-width:900px){
+.layout{grid-template-columns:1fr}
+.rightcol{grid-template-columns:1fr}
+.shell{padding:16px}
+.top{align-items:flex-start}
+.topright{flex-wrap:wrap;justify-content:flex-end}
+}
+@media(max-width:560px){
+.brand h1{font-size:16px}
+.credit{font-size:10px}
+.grid2{grid-template-columns:1fr}
+.grid3{grid-template-columns:1fr 1fr}
+.panelhead,.form{padding-left:16px;padding-right:16px}
+.tabs{padding-left:16px;padding-right:16px}
+}
 </style>
 </head>
 <body>
 <div class="shell">
-  <header class="top">
-    <div class="brand"><div class="logo">J</div><div><h1>Jaxbax's Video Gen Tool</h1><p>One studio. A whole lineup of AI models.</p></div></div>
-    <div class="topright"><div class="credit"><span class="dot"></span><span id="connection">Checking connection</span></div><div class="credit">Credits <b id="credits">—</b></div></div>
-  </header>
+<header class="top">
+<div class="brand"><div class="logo">J</div><div><h1>Jaxbax's Video Gen Tool</h1><p>One studio. A whole lineup of AI models.</p></div></div>
+<div class="topright"><div class="credit"><span class="dot"></span><span id="connection">Checking connection</span></div><div class="credit">Credits <b id="credits">—</b></div></div>
+</header>
 
-  <main class="layout">
-    <section class="panel">
-      <div class="panelhead"><div class="eyebrow">Creation studio</div><h2>Make something awesome.</h2><p class="sub">Choose a model, describe your idea, and create.</p></div>
-      <div class="tabs"><button class="tab active" id="videoTab">▣ Video</button><button class="tab" id="imageTab">▧ Image</button></div>
-      <form class="form" id="genForm">
-        <div class="field"><div class="labelrow"><label class="label" for="model">AI model</label><span class="hint" id="modelHint">Video generation</span></div><select id="model"></select></div>
-        <div class="field"><div class="labelrow"><label class="label" for="prompt">Your prompt</label><span class="hint" id="count">0 characters</span></div><textarea id="prompt" placeholder="Describe the scene, action, camera movement, lighting, and overall style..." required></textarea><div class="toolrow"><button class="toolbtn" type="button" id="improvePrompt">✦ Improve my prompt</button><select id="promptStyle" aria-label="Prompt style" style="width:auto;padding:7px 9px;font-size:11px"><option value="cinematic">Cinematic</option><option value="realistic">Photorealistic</option><option value="funny">Funny / chaotic</option><option value="security">Doorbell / security camera</option><option value="anime">Anime</option><option value="product">Product showcase</option></select></div><div class="assistantresult" id="assistantResult" hidden></div></div>
-        <div class="field"><div class="labelrow"><span class="label" id="referenceLabel">Image-to-video / reference image (optional)</span><span class="hint">JPG · PNG · WEBP</span></div><div class="upload"><div class="uploadicon">＋</div><input id="reference" type="file" accept="image/png,image/jpeg,image/webp,image/gif,image/heic"><span class="hint" id="referenceHint">For supported video models, this image guides the generated clip.</span></div><div class="toolrow"><button class="toolbtn" type="button" id="imageToVideoBtn">🎞 Use image-to-video mode</button><span class="hint" id="imageToVideoStatus">Optional reference image</span></div></div>
-        <div class="grid2">
-          <div class="field"><label class="label" for="ratio">Aspect ratio</label><select id="ratio"></select></div>
-          <div class="field"><label class="label" for="resolution">Resolution</label><select id="resolution"></select></div>
-        </div>
-        <div class="grid2" id="videoOptions">
-          <div class="field"><label class="label" for="duration">Duration</label><select id="duration"></select></div>
-          <div class="field"><label class="label" for="mode">Generation style</label><select id="mode"><option value="custom">Custom</option><option value="normal">Normal</option><option value="extremely-crazy">Fun / Crazy</option><option value="extremely-spicy-or-crazy">Spicy / Crazy</option></select></div>
-        </div>
-        <div class="field" id="audioRow"><label style="display:flex;gap:9px;align-items:center;color:#c9c2c9;font-size:12px"><input type="checkbox" id="mute"> Generate without audio</label></div>
-        <div class="field" id="imageOptions" hidden><div class="grid2"><div><label class="label" for="format">Output format</label><select id="format"><option value="png">PNG</option><option value="jpeg">JPEG</option></select></div><div><label class="label" for="quantity">Number of outputs</label><select id="quantity"><option value="1">1 image</option><option value="2">2 images (Grok)</option><option value="3">3 images (Grok)</option></select></div></div></div>
-        <button class="generate" id="generateBtn" type="submit">✦ Generate video</button>
-        <p class="costnote">Generation may reserve VidoGrid credits. Check your balance and model access before submitting.</p>
-      </form>
-    </section>
-
-    <aside class="rightcol">
-      <section class="panel preview">
-        <div class="panelhead"><div class="eyebrow">Your canvas</div><h2>Generation preview</h2><p class="sub">Your result will appear here when it is ready.</p></div>
-        <div class="previewarea" id="previewArea"><div class="empty"><div class="emptyicon">✧</div><b>Ready when you are</b><span>Your creations will show up here. Generation can take a little while.</span></div></div>
-        <div class="statusline"><span id="statusText">Waiting for your first creation</span><strong id="progressText"></strong></div>
-      </section>
-      <section class="panel history">
-        <div class="historytop"><div><h3>Generation queue</h3><p class="sub">Your recent submitted jobs.</p></div><button class="refresh" id="refreshQueue">↻ Refresh</button></div>
-        <div id="queueList"><div class="empty" style="max-width:none;padding:14px"><span>No generations yet.</span></div></div>
-      </section>
-      <section class="panel history">
-        <div class="historytop"><div><h3>Account generation history</h3><p class="sub">All generations on the shared VidoGrid account · click to reopen.</p></div><button class="refresh" id="refreshHistory">↻ Refresh</button></div>
-        <div class="historyfilters" role="group" aria-label="Filter generation history"><button class="historyfilter active" data-history-filter="all">All</button><button class="historyfilter" data-history-filter="video">Videos</button><button class="historyfilter" data-history-filter="image">Images</button></div>
-        <div id="historyList"><div class="empty" style="max-width:none;padding:14px"><span>Your creations will appear here.</span></div></div>
-        <div class="historyactions"><button id="historyPrev" disabled>← Newer</button><span id="historyPage" class="hint" style="align-self:center">Page 1</span><button id="historyNext">Older →</button></div>
-      </section>
-    </aside>
-  </main>
-  <div class="footer">Jaxbax's Video Gen Tool · Video + image generation · Shared household history · Keep your API keys private</div>
+<main class="layout">
+<section class="panel">
+<div class="panelhead"><div class="eyebrow">Creation studio</div><h2>Make something awesome.</h2><p class="sub">Choose a model, describe your idea, and create.</p></div>
+<div class="tabs"><button class="tab active" id="videoTab">▣ Video</button><button class="tab" id="imageTab">▧ Image</button></div>
+<form class="form" id="genForm">
+<div class="field"><div class="labelrow"><label class="label" for="model">AI model</label><span class="hint" id="modelHint">Video generation</span></div><select id="model"></select></div>
+<div class="field"><div class="labelrow"><label class="label" for="prompt">Your prompt</label><span class="hint" id="count">0 characters</span></div><textarea id="prompt" placeholder="Describe the scene, action, camera movement, lighting, and overall style..." required></textarea><div class="toolrow"><button class="toolbtn" type="button" id="improvePrompt">✦ Improve my prompt</button><select id="promptStyle" aria-label="Prompt style" style="width:auto;padding:7px 9px;font-size:11px"><option value="cinematic">Cinematic</option><option value="realistic">Photorealistic</option><option value="funny">Funny / chaotic</option><option value="security">Doorbell / security camera</option><option value="anime">Anime</option><option value="product">Product showcase</option></select></div><div class="assistantresult" id="assistantResult" hidden></div></div>
+<div class="field"><div class="labelrow"><span class="label" id="referenceLabel">Image-to-video / reference image (optional)</span><span class="hint">JPG · PNG · WEBP</span></div><div class="upload"><div class="uploadicon">＋</div><input id="reference" type="file" accept="image/png,image/jpeg,image/webp,image/gif,image/heic"><span class="hint" id="referenceHint">For supported video models, this image guides the generated clip.</span></div><div class="toolrow"><button class="toolbtn" type="button" id="imageToVideoBtn">🎞 Use image-to-video mode</button><span class="hint" id="imageToVideoStatus">Optional reference image</span></div></div>
+<div class="grid2">
+<div class="field"><label class="label" for="ratio">Aspect ratio</label><select id="ratio"></select></div>
+<div class="field"><label class="label" for="resolution">Resolution</label><select id="resolution"></select></div>
 </div>
+<div class="grid2" id="videoOptions">
+<div class="field"><label class="label" for="duration">Duration</label><select id="duration"></select></div>
+<div class="field"><label class="label" for="mode">Generation style</label><select id="mode"><option value="custom">Custom</option><option value="normal">Normal</option><option value="extremely-crazy">Fun / Crazy</option><option value="extremely-spicy-or-crazy">Spicy / Crazy</option></select></div>
+</div>
+<div class="field" id="audioRow"><label style="display:flex;gap:9px;align-items:center;color:#c9c2c9;font-size:12px"><input type="checkbox" id="mute"> Generate without audio</label></div>
+<div class="field" id="imageOptions" hidden><div class="grid2"><div><label class="label" for="format">Output format</label><select id="format"><option value="png">PNG</option><option value="jpeg">JPEG</option></select></div><div><label class="label" for="quantity">Number of outputs</label><select id="quantity"><option value="1">1 image</option><option value="2">2 images (Grok)</option><option value="3">3 images (Grok)</option></select></div></div></div>
+<button class="generate" id="generateBtn" type="submit">✦ Generate video</button>
+<p class="costnote">Generation may reserve VidoGrid credits. Check your balance and model access before submitting.</p>
+</form>
+</section>
+
+<aside class="rightcol">
+<section class="panel preview">
+<div class="panelhead"><div class="eyebrow">Your canvas</div><h2>Generation preview</h2><p class="sub">Your result will appear here when it is ready.</p></div>
+<div class="previewarea" id="previewArea"><div class="empty"><div class="emptyicon">✧</div><b>Ready when you are</b><span>Your creations will show up here. Generation can take a little while.</span></div></div>
+<div class="statusline"><span id="statusText">Waiting for your first creation</span><strong id="progressText"></strong></div>
+</section>
+<section class="panel history">
+<div class="historytop"><div><h3>Generation queue</h3><p class="sub">Your recent submitted jobs.</p></div><button class="refresh" id="refreshQueue">↻ Refresh</button></div>
+<div id="queueList"><div class="empty" style="max-width:none;padding:14px"><span>No generations yet.</span></div></div>
+</section>
+<section class="panel history">
+<div class="historytop"><div><h3>Account generation history</h3><p class="sub">All generations on the shared VidoGrid account · click to reopen.</p></div><button class="refresh" id="refreshHistory">↻ Refresh</button></div>
+<div class="historyfilters" role="group" aria-label="Filter generation history"><button class="historyfilter active" data-history-filter="all">All</button><button class="historyfilter" data-history-filter="video">Videos</button><button class="historyfilter" data-history-filter="image">Images</button></div>
+<div id="historyList"><div class="empty" style="max-width:none;padding:14px"><span>Your creations will appear here.</span></div></div>
+<div class="historyactions"><button id="historyPrev" disabled>← Newer</button><span id="historyPage" class="hint" style="align-self:center">Page 1</span><button id="historyNext">Older →</button></div>
+</section>
+</aside>
+</main>
+<div class="footer">Jaxbax's Video Gen Tool · Video + image generation · Shared household history · Keep your API keys private</div>
+</div>
+
 <div class="toast" id="toast"></div>
+
+<!-- SECRET GAME BUTTON AND OVERLAY -->
+<button id="botFlapSecret" title="Secret game" aria-label="Open secret game">🤖</button>
+<div id="botFlapOverlay" aria-hidden="true">
+<div id="botFlapGame" role="dialog" aria-modal="true" aria-label="Bot Flap Factory Escape">
+<div class="bot-game-head">
+<h2>🤖 BOT FLAP: FACTORY ESCAPE</h2>
+<button id="botClose" type="button">✕ Close</button>
+</div>
+<canvas id="botCanvas" width="900" height="500"></canvas>
+<div class="bot-game-info">
+Tap or press <strong>SPACE</strong> to fly · Avoid the metal pipes!
+<br>Best score: <strong id="botBest">0</strong>
+<br><br><button id="botRestart" type="button">▶ Start / Restart</button>
+</div>
+</div>
+</div>
+
 <script>
 const VIDEO_MODELS = [
- ["veo-3.1-fast","Google Veo 3.1 Fast"],["veo-3.1","Google Veo 3.1"],["omni-1.1-flash","Omni 1.1 Flash"],
- ["grok-imagine-video-1.5-lite","Grok Imagine Video 1.5 Lite"],["grok-imagine-video-1.5","Grok Imagine Video 1.5"],["muse-ai-video","Muse AI Video"]
+["veo-3.1-fast","Google Veo 3.1 Fast"],["veo-3.1","Google Veo 3.1"],["omni-1.1-flash","Omni 1.1 Flash"],
+["grok-imagine-video-1.5-lite","Grok Imagine Video 1.5 Lite"],["grok-imagine-video-1.5","Grok Imagine Video 1.5"],["muse-ai-video","Muse AI Video"]
 ];
 const IMAGE_MODELS = [
- ["nano-banana-2-lite","Nano Banana 2 Lite"],["nano-banana-2.1","Nano Banana 2.1"],["nano-banana-pro","Nano Banana Pro"],
- ["grok-image","Grok Image"],["grok-image-v2","Grok Image v2"],["gpt-image-2.5","GPT Image 2.5"]
+["nano-banana-2-lite","Nano Banana 2 Lite"],["nano-banana-2.1","Nano Banana 2.1"],["nano-banana-pro","Nano Banana Pro"],
+["grok-image","Grok Image"],["grok-image-v2","Grok Image v2"],["gpt-image-2.5","GPT Image 2.5"]
 ];
 let kind="video", activeUuid=null, pollTimer=null, currentAccount=null;
 const $=id=>document.getElementById(id);
@@ -108,210 +216,524 @@ function isVeo(){return ["veo-3.1","veo-3.1-fast","omni-1.1-flash"].includes($("
 function isMuse(){return $("model").value==="muse-ai-video"}
 function isNano(){return $("model").value.startsWith("nano-banana")}
 function setKind(k){
- kind=k; if(k!=="video"){ $("referenceLabel").textContent="Reference image (optional)"; } else if(!imageToVideoMode){ $("referenceLabel").textContent="Image-to-video / reference image (optional)"; } $("videoTab").classList.toggle("active",k==="video");$("imageTab").classList.toggle("active",k==="image");
- $("modelHint").textContent=k==="video"?"Video generation":"Image generation";
- setOptions($("model"),k==="video"?VIDEO_MODELS:IMAGE_MODELS,k==="video"?"veo-3.1-fast":"nano-banana-2-lite");
- $("videoOptions").hidden=k!=="video";$("audioRow").hidden=k!=="video";$("imageOptions").hidden=k!=="image";
- $("generateBtn").textContent=k==="video"?"✦ Generate video":"✦ Generate image";
- updateModelOptions();
+kind=k;
+if(k!=="video"){$("referenceLabel").textContent="Reference image (optional)";}
+else if(!imageToVideoMode){$("referenceLabel").textContent="Image-to-video / reference image (optional)";}
+$("videoTab").classList.toggle("active",k==="video");
+$("imageTab").classList.toggle("active",k==="image");
+$("modelHint").textContent=k==="video"?"Video generation":"Image generation";
+setOptions($("model"),k==="video"?VIDEO_MODELS:IMAGE_MODELS,k==="video"?"veo-3.1-fast":"nano-banana-2-lite");
+$("videoOptions").hidden=k!=="video";
+$("audioRow").hidden=k!=="video";
+$("imageOptions").hidden=k!=="image";
+$("generateBtn").textContent=k==="video"?"✦ Generate video":"✦ Generate image";
+updateModelOptions();
 }
 function updateModelOptions(){
- const m=$("model").value;
- let ratios, resolutions;
- if(kind==="video"){
-  ratios=isVeo()?[["16:9","Landscape · 16:9"],["9:16","Portrait · 9:16"]]:isMuse()?[["landscape","Landscape"],["portrait","Portrait"],["square","Square"]]:[["landscape","Landscape"],["portrait","Portrait"],["square","Square"],["3:2","3:2"],["2:3","2:3"]];
-  resolutions=isMuse()?[["480p","480p"],["720p","720p"]]:isGrokVideo()?[["480p","480p"],["720p","720p"],["1080p","1080p"]]:[["720p","720p"],["1080p","1080p"]];
-  const durations=isVeo()?(m==="omni-1.1-flash"?[4,6,8,10]:[4,6,8]):isMuse()?[10]:[6,10,15];
-  setOptions($("duration"),durations.map(x=>[String(x),x+" seconds"]),String(durations[0]));
-  $("mode").disabled=!isGrokVideo();$("mode").value="custom";
- } else {
-  ratios=isNano()||m==="gpt-image-2.5"?[["1:1","Square · 1:1"],["16:9","Landscape · 16:9"],["9:16","Portrait · 9:16"],["4:3","4:3"],["3:4","3:4"]]:[["landscape","Landscape"],["portrait","Portrait"],["square","Square"],["horizontal","Horizontal · 3:2"],["vertical","Vertical · 2:3"]];
-  resolutions=isNano()?[["1K","1K"],["2K","2K"],["4K","4K"]]:[["standard","Standard"]];
-  $("format").disabled=m==="gpt-image-2.5";$("quantity").disabled=m!=="grok-image"&&m!=="grok-image-v2";
- }
- setOptions($("ratio"),ratios);setOptions($("resolution"),resolutions);
+const m=$("model").value;
+let ratios,resolutions;
+if(kind==="video"){
+ratios=isVeo()?[["16:9","Landscape · 16:9"],["9:16","Portrait · 9:16"]]:isMuse()?[["landscape","Landscape"],["portrait","Portrait"],["square","Square"]]:[["landscape","Landscape"],["portrait","Portrait"],["square","Square"],["3:2","3:2"],["2:3","2:3"]];
+resolutions=isMuse()?[["480p","480p"],["720p","720p"]]:isGrokVideo()?[["480p","480p"],["720p","720p"],["1080p","1080p"]]:[["720p","720p"],["1080p","1080p"]];
+const durations=isVeo()?(m==="omni-1.1-flash"?[4,6,8,10]:[4,6,8]):isMuse()?[10]:[6,10,15];
+setOptions($("duration"),durations.map(x=>[String(x),x+" seconds"]),String(durations[0]));
+$("mode").disabled=!isGrokVideo();
+$("mode").value="custom";
+}else{
+ratios=isNano()||m==="gpt-image-2.5"?[["1:1","Square · 1:1"],["16:9","Landscape · 16:9"],["9:16","Portrait · 9:16"],["4:3","4:3"],["3:4","3:4"]]:[["landscape","Landscape"],["portrait","Portrait"],["square","Square"],["horizontal","Horizontal · 3:2"],["vertical","Vertical · 2:3"]];
+resolutions=isNano()?[["1K","1K"],["2K","2K"],["4K","4K"]]:[["standard","Standard"]];
+$("format").disabled=m==="gpt-image-2.5";
+$("quantity").disabled=m!=="grok-image"&&m!=="grok-image-v2";
+}
+setOptions($("ratio"),ratios);
+setOptions($("resolution"),resolutions);
 }
 let imageToVideoMode=false;
-$("videoTab").onclick=()=>setKind("video");$("imageTab").onclick=()=>{imageToVideoMode=false;$("imageToVideoBtn").textContent="🎞 Use image-to-video mode";$("imageToVideoStatus").textContent="Optional reference image";setKind("image")};$("model").onchange=updateModelOptions;
+$("videoTab").onclick=()=>setKind("video");
+$("imageTab").onclick=()=>{imageToVideoMode=false;$("imageToVideoBtn").textContent="🎞 Use image-to-video mode";$("imageToVideoStatus").textContent="Optional reference image";setKind("image")};
+$("model").onchange=updateModelOptions;
 $("imageToVideoBtn").onclick=()=>{
- if(imageToVideoMode){imageToVideoMode=false;$("reference").value="";$("referenceLabel").textContent="Image-to-video / reference image (optional)";$("imageToVideoStatus").textContent="Optional reference image";$("imageToVideoBtn").textContent="🎞 Use image-to-video mode";return;}
- setKind("video");imageToVideoMode=true;
- $("referenceLabel").textContent="Starting image for your video";
- $("imageToVideoStatus").textContent="Image-to-video mode enabled · choose an image below";
- $("imageToVideoBtn").textContent="✕ Turn off image-to-video";
- $("reference").click();
+if(imageToVideoMode){
+imageToVideoMode=false;
+$("reference").value="";
+$("referenceLabel").textContent="Image-to-video / reference image (optional)";
+$("imageToVideoStatus").textContent="Optional reference image";
+$("imageToVideoBtn").textContent="🎞 Use image-to-video mode";
+return;
+}
+setKind("video");
+imageToVideoMode=true;
+$("referenceLabel").textContent="Starting image for your video";
+$("imageToVideoStatus").textContent="Image-to-video mode enabled · choose an image below";
+$("imageToVideoBtn").textContent="✕ Turn off image-to-video";
+$("reference").click();
 };
 $("reference").addEventListener("change",()=>{
- if(imageToVideoMode&&!$("reference").files[0])$("imageToVideoStatus").textContent="Choose an image to continue.";
- else if($("reference").files[0])$("imageToVideoStatus").textContent=$("reference").files[0].name;
+if(imageToVideoMode&&!$("reference").files[0])$("imageToVideoStatus").textContent="Choose an image to continue.";
+else if($("reference").files[0])$("imageToVideoStatus").textContent=$("reference").files[0].name;
 });
 $("prompt").addEventListener("input",()=>$("count").textContent=$("prompt").value.length+" characters");
-const PROMPT_STYLE = {
- cinematic:"cinematic film look, deliberate camera movement, dramatic lighting, rich atmosphere, detailed composition, professional color grading",
- realistic:"photorealistic detail, natural movement, believable physics, realistic lighting, documentary camera feel",
- funny:"unexpected funny situation, expressive reactions, playful timing, absurd but coherent action, comedic camera framing",
- security:"fixed doorbell security camera perspective, wide-angle lens, timestamp-free footage, natural porch lighting, realistic motion, no added text",
- anime:"high-quality anime animation, expressive character acting, dynamic composition, beautifully detailed background, fluid motion",
- product:"premium product commercial, clean hero composition, controlled studio lighting, smooth camera movement, polished reflections"
+const PROMPT_STYLE={
+cinematic:"cinematic film look, deliberate camera movement, dramatic lighting, rich atmosphere, detailed composition, professional color grading",
+realistic:"photorealistic detail, natural movement, believable physics, realistic lighting, documentary camera feel",
+funny:"unexpected funny situation, expressive reactions, playful timing, absurd but coherent action, comedic camera framing",
+security:"fixed doorbell security camera perspective, wide-angle lens, timestamp-free footage, natural porch lighting, realistic motion, no added text",
+anime:"high-quality anime animation, expressive character acting, dynamic composition, beautifully detailed background, fluid motion",
+product:"premium product commercial, clean hero composition, controlled studio lighting, smooth camera movement, polished reflections"
 };
 $("improvePrompt").onclick=()=>{
- const base=$("prompt").value.trim();if(!base)return toast("Write a quick idea first, then I'll expand it.");
- const style=PROMPT_STYLE[$("promptStyle").value]||PROMPT_STYLE.cinematic;
- const improved=`${base}. ${style}. Keep the main subject visually consistent throughout. Make the action clear and easy to follow, with a strong opening frame and a polished ending. Avoid unwanted text, logos, watermarks, visual glitches, and sudden scene changes.`;
- $("assistantResult").textContent=improved;$("assistantResult").hidden=false;
- const apply=document.createElement("button");apply.className="toolbtn";apply.type="button";apply.textContent="Use improved prompt";apply.onclick=()=>{$("prompt").value=improved;$("count").textContent=improved.length+" characters";toast("Improved prompt added.")};
- $("assistantResult").appendChild(document.createElement("br"));$("assistantResult").appendChild(apply);
+const base=$("prompt").value.trim();
+if(!base)return toast("Write a quick idea first, then I'll expand it.");
+const style=PROMPT_STYLE[$("promptStyle").value]||PROMPT_STYLE.cinematic;
+const improved=`${base}. ${style}. Keep the main subject visually consistent throughout. Make the action clear and easy to follow, with a strong opening frame and a polished ending. Avoid unwanted text, logos, watermarks, visual glitches, and sudden scene changes.`;
+$("assistantResult").textContent=improved;
+$("assistantResult").hidden=false;
+const apply=document.createElement("button");
+apply.className="toolbtn";
+apply.type="button";
+apply.textContent="Use improved prompt";
+apply.onclick=()=>{$("prompt").value=improved;$("count").textContent=improved.length+" characters";toast("Improved prompt added.")};
+$("assistantResult").appendChild(document.createElement("br"));
+$("assistantResult").appendChild(apply);
 };
 
-async function api(url,opts={}){const r=await fetch(url,opts);const t=await r.text();let d;try{d=JSON.parse(t)}catch{d={raw:t}}if(!r.ok)throw new Error(d.detail?.error_message||d.error_message||d.detail||d.error||d.message||`Request failed (${r.status})`);return d}
+async function api(url,opts={}){
+const r=await fetch(url,opts);
+const t=await r.text();
+let d;
+try{d=JSON.parse(t)}catch{d={raw:t}}
+if(!r.ok)throw new Error(d.detail?.error_message||d.error_message||d.detail||d.error||d.message||`Request failed (${r.status})`);
+return d;
+}
 async function refreshAccount(){
- try{const a=await api("/api/account");currentAccount=a;$("connection").textContent=a.is_active===false?"Account inactive":"Connected";
- const c=a.user_credit||{};$("credits").textContent=(c.available_credit??"—").toLocaleString?.()??"—";
- $("credits").title=`Available: ${c.available_credit??"unknown"} · Locked: ${c.locked_credit??"unknown"} · Plan: ${a.plan_id||"unknown"}`;
- }catch(e){$("connection").textContent="Not connected";$("credits").textContent="—";toast("Connection check: "+e.message)}
+try{
+const a=await api("/api/account");
+currentAccount=a;
+$("connection").textContent=a.is_active===false?"Account inactive":"Connected";
+const c=a.user_credit||{};
+$("credits").textContent=(c.available_credit??"—").toLocaleString?.()??"—";
+$("credits").title=`Available: ${c.available_credit??"unknown"} · Locked: ${c.locked_credit??"unknown"} · Plan: ${a.plan_id||"unknown"}`;
+}catch(e){
+$("connection").textContent="Not connected";
+$("credits").textContent="—";
+toast("Connection check: "+e.message);
+}
 }
 function showEmpty(title,detail){$("previewArea").innerHTML=`<div class="empty"><div class="emptyicon">✧</div><b>${title}</b><span>${detail}</span></div>`}
 async function generate(e){
- e.preventDefault();const prompt=$("prompt").value.trim();if(!prompt)return toast("Add a prompt first.");
- const model=$("model").value;
- if(imageToVideoMode&&!$("reference").files[0])return toast("Choose a starting image for image-to-video.");
- if(imageToVideoMode&&!(isVeo()||isGrokVideo()||isMuse()))return toast("This selected model does not have the image-reference upload configured.");
- if(!confirm(`Submit to ${modelName()}? VidoGrid may reserve credits for this generation. Continue?`))return;
- const btn=$("generateBtn");btn.disabled=true;btn.textContent="Submitting…";$("statusText").textContent="Sending your request…";$("progressText").textContent="";
- const form=new FormData();form.append("model",model);form.append("prompt",prompt);form.append("aspect_ratio",$("ratio").value);form.append("resolution",$("resolution").value);
- if(kind==="video"){
-  form.append("duration",$("duration").value);
-  if(isVeo()){if(model==="omni-1.1-flash"){} }
-  else if(isGrokVideo())form.append("mode",$("mode").value);
-  if(isGrokVideo()||isVeo())form.append("skip_audio",$("mute").checked?"true":"false");
-  if(isVeo() && $("reference").files[0])form.append("ref_images",$("reference").files[0]);
-  else if((isGrokVideo()||isMuse()) && $("reference").files[0])form.append("files",$("reference").files[0]);
- }else{
-  if(isNano()){form.append("output_format",$("format").value);form.append("number_of_images","1")}
-  if(model==="grok-image"||model==="grok-image-v2"){form.append("num_result",$("quantity").value);if($("reference").files[0])form.append(model==="grok-image-v2"?"ref_images":"files",$("reference").files[0])}
-  else if(model==="gpt-image-2.5" && $("reference").files[0])form.append("files",$("reference").files[0]);
-  else if(isNano() && $("reference").files[0])form.append("files",$("reference").files[0]);
- }
- try{
-  const result=await api("/api/generate",{method:"POST",body:form});
-  activeUuid=result.uuid;if(!activeUuid)throw new Error("VidoGrid did not return a generation UUID: "+JSON.stringify(result));
-  await api("/api/family-data",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({action:"addJob",uuid:activeUuid,prompt,kind,model})});
-  refreshQueue();
-  $("statusText").textContent="Generation queued · "+modelName();$("progressText").textContent=result.estimated_credit!=null?`${result.estimated_credit} estimated credits`:"Queued";
-  showEmpty("Generation in progress",`Job ${activeUuid.slice(0,8)}… · Checking for your result`);
-  await refreshAccount();await checkStatus(activeUuid);if(pollTimer)clearInterval(pollTimer);pollTimer=setInterval(()=>checkStatus(activeUuid),7000);
- }catch(err){toast(err.message);$("statusText").textContent="Generation could not be submitted";$("progressText").textContent="";showEmpty("Something went wrong",err.message)}
- finally{btn.disabled=false;btn.textContent=kind==="video"?"✦ Generate video":"✦ Generate image"}
+e.preventDefault();
+const prompt=$("prompt").value.trim();
+if(!prompt)return toast("Add a prompt first.");
+const model=$("model").value;
+if(imageToVideoMode&&!$("reference").files[0])return toast("Choose a starting image for image-to-video.");
+if(imageToVideoMode&&!(isVeo()||isGrokVideo()||isMuse()))return toast("This selected model does not have the image-reference upload configured.");
+if(!confirm(`Submit to ${modelName()}? VidoGrid may reserve credits for this generation. Continue?`))return;
+const btn=$("generateBtn");
+btn.disabled=true;
+btn.textContent="Submitting…";
+$("statusText").textContent="Sending your request…";
+$("progressText").textContent="";
+const form=new FormData();
+form.append("model",model);
+form.append("prompt",prompt);
+form.append("aspect_ratio",$("ratio").value);
+form.append("resolution",$("resolution").value);
+if(kind==="video"){
+form.append("duration",$("duration").value);
+if(isVeo()){if(model==="omni-1.1-flash"){}}
+else if(isGrokVideo())form.append("mode",$("mode").value);
+if(isGrokVideo()||isVeo())form.append("skip_audio",$("mute").checked?"true":"false");
+if(isVeo()&&$("reference").files[0])form.append("ref_images",$("reference").files[0]);
+else if((isGrokVideo()||isMuse())&&$("reference").files[0])form.append("files",$("reference").files[0]);
+}else{
+if(isNano()){form.append("output_format",$("format").value);form.append("number_of_images","1")}
+if(model==="grok-image"||model==="grok-image-v2"){form.append("num_result",$("quantity").value);if($("reference").files[0])form.append(model==="grok-image-v2"?"ref_images":"files",$("reference").files[0])}
+else if(model==="gpt-image-2.5"&&$("reference").files[0])form.append("files",$("reference").files[0]);
+else if(isNano()&&$("reference").files[0])form.append("files",$("reference").files[0]);
+}
+try{
+const result=await api("/api/generate",{method:"POST",body:form});
+activeUuid=result.uuid;
+if(!activeUuid)throw new Error("VidoGrid did not return a generation UUID: "+JSON.stringify(result));
+await api("/api/family-data",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({action:"addJob",uuid:activeUuid,prompt,kind,model})});
+refreshQueue();
+$("statusText").textContent="Generation queued · "+modelName();
+$("progressText").textContent=result.estimated_credit!=null?`${result.estimated_credit} estimated credits`:"Queued";
+showEmpty("Generation in progress",`Job ${activeUuid.slice(0,8)}… · Checking for your result`);
+await refreshAccount();
+await checkStatus(activeUuid);
+if(pollTimer)clearInterval(pollTimer);
+pollTimer=setInterval(()=>checkStatus(activeUuid),7000);
+}catch(err){
+toast(err.message);
+$("statusText").textContent="Generation could not be submitted";
+$("progressText").textContent="";
+showEmpty("Something went wrong",err.message);
+}finally{
+btn.disabled=false;
+btn.textContent=kind==="video"?"✦ Generate video":"✦ Generate image";
+}
 }
 async function checkStatus(uuid){
- try{
-  const item=await api("/api/history/"+encodeURIComponent(uuid));
-  const status=Number(item.status);
-  $("statusText").textContent=item.status_desc||(["Queued","Processing","Completed","Failed"][status]||"Working");
-  $("progressText").textContent=item.status_percentage!=null?`${item.status_percentage}%`:status===2?"Complete":"";
-  if(status===2){
-   if(pollTimer)clearInterval(pollTimer);pollTimer=null;
-   const videos=item.generated_video||[],images=item.generated_image||[];
-   const media=kind==="video"?videos:images;
-   if(videos.length){const src=videos[0].video_url;$("previewArea").innerHTML=src?`<video class="result" controls playsinline src="${src}"></video><div style="margin-top:12px"><a href="${src}" download target="_blank" style="color:#ff6b75;font-size:12px">↧ Open / download video</a></div>`:"<div class='empty'>Video completed but no video URL was returned.</div>"}
-   else if(images.length){$("previewArea").innerHTML=images.map(im=>`<div style="margin-bottom:12px"><img class="result" src="${im.image_url||im.file_download_url}" alt="Generated image"><a href="${im.file_download_url||im.image_url}" target="_blank" download style="color:#ff6b75;font-size:12px">↧ Open / download image</a></div>`).join("")}
-   else showEmpty("Completed","The generation completed, but no media URL was present in the history response.");
-   await refreshAccount();await refreshHistory();await refreshQueue();
-  }else if(status===3||status===-2){
-   if(pollTimer)clearInterval(pollTimer);pollTimer=null;toast(item.error_message||item.status_desc||"Generation failed.");showEmpty("Generation failed",item.error_message||item.status_desc||"Please check the prompt and try again.");
-   await refreshAccount();await refreshQueue();
-  }else showEmpty("Generation in progress",`${item.status_percentage??"Working"}% · You can keep this page open while it renders.`);
- }catch(e){$("statusText").textContent="Checking status…";$("progressText").textContent=e.message}
+try{
+const item=await api("/api/history/"+encodeURIComponent(uuid));
+const status=Number(item.status);
+$("statusText").textContent=item.status_desc||(["Queued","Processing","Completed","Failed"][status]||"Working");
+$("progressText").textContent=item.status_percentage!=null?`${item.status_percentage}%`:status===2?"Complete":"";
+if(status===2){
+if(pollTimer)clearInterval(pollTimer);
+pollTimer=null;
+const videos=item.generated_video||[],images=item.generated_image||[];
+if(videos.length){
+const src=videos[0].video_url;
+$("previewArea").innerHTML=src?`<video class="result" controls playsinline src="${src}"></video><div style="margin-top:12px"><a href="${src}" download target="_blank" style="color:#ff6b75;font-size:12px">↧ Open / download video</a></div>`:"<div class='empty'>Video completed but no video URL was returned.</div>";
+}else if(images.length){
+$("previewArea").innerHTML=images.map(im=>`<div style="margin-bottom:12px"><img class="result" src="${im.image_url||im.file_download_url}" alt="Generated image"><a href="${im.file_download_url||im.image_url}" target="_blank" download style="color:#ff6b75;font-size:12px">↧ Open / download image</a></div>`).join("");
+}else showEmpty("Completed","The generation completed, but no media URL was present in the history response.");
+await refreshAccount();
+await refreshHistory();
+await refreshQueue();
+}else if(status===3||status===-2){
+if(pollTimer)clearInterval(pollTimer);
+pollTimer=null;
+toast(item.error_message||item.status_desc||"Generation failed.");
+showEmpty("Generation failed",item.error_message||item.status_desc||"Please check the prompt and try again.");
+await refreshAccount();
+await refreshQueue();
+}else showEmpty("Generation in progress",`${item.status_percentage??"Working"}% · You can keep this page open while it renders.`);
+}catch(e){
+$("statusText").textContent="Checking status…";
+$("progressText").textContent=e.message;
+}
 }
 let queueBusy=false;
 async function refreshQueue(){
- if(queueBusy)return;queueBusy=true;
- const list=$("queueList");list.innerHTML='<div class="empty" style="max-width:none;padding:14px"><span>Loading your jobs…</span></div>';
- try{
-  const data=await api("/api/family-data");
-  const jobs=Array.isArray(data.jobs)?data.jobs:[];
-  if(!jobs.length){list.innerHTML='<div class="empty" style="max-width:none;padding:14px"><span>No generations yet.</span></div>';return}
-  const latest=jobs.slice(0,20);
-  const statuses=await Promise.all(latest.map(async j=>{try{return {...j,remote:await api("/api/history/"+encodeURIComponent(j.uuid))}}catch{return j}}));
-  list.innerHTML=statuses.map(j=>{
-   const r=j.remote||{};const st=Number(r.status);const label=r.status_desc|| (st===2?"Completed":st===3?"Failed":j.status||"Queued");
-   const cls=st===2?"done":st===3?"fail":"";
-   return `<div class="queueitem"><div class="thumb">${j.kind==="video"?"▶":"▧"}</div><div class="qmeta"><b>${escapeHtml(j.prompt||j.model)}</b><small>${escapeHtml(j.model)} · ${new Date(j.createdAt).toLocaleString()}</small></div><span class="queuebadge ${cls}">${escapeHtml(label)}</span><button class="refresh" data-open-job="${escapeHtml(j.uuid)}" style="padding:6px 8px">Open</button></div>`;
-  }).join("");
-  list.querySelectorAll("[data-open-job]").forEach(b=>b.onclick=()=>openHistoryItem(b.dataset.openJob));
- }catch(e){list.innerHTML=`<div class="empty" style="max-width:none;padding:14px"><span>${escapeHtml(e.message)}</span></div>`}
- finally{queueBusy=false}
+if(queueBusy)return;
+queueBusy=true;
+const list=$("queueList");
+list.innerHTML='<div class="empty" style="max-width:none;padding:14px"><span>Loading your jobs…</span></div>';
+try{
+const data=await api("/api/family-data");
+const jobs=Array.isArray(data.jobs)?data.jobs:[];
+if(!jobs.length){list.innerHTML='<div class="empty" style="max-width:none;padding:14px"><span>No generations yet.</span></div>';return}
+const latest=jobs.slice(0,20);
+const statuses=await Promise.all(latest.map(async j=>{try{return {...j,remote:await api("/api/history/"+encodeURIComponent(j.uuid))}}catch{return j}}));
+list.innerHTML=statuses.map(j=>{
+const r=j.remote||{};
+const st=Number(r.status);
+const label=r.status_desc||(st===2?"Completed":st===3?"Failed":j.status||"Queued");
+const cls=st===2?"done":st===3?"fail":"";
+return `<div class="queueitem"><div class="thumb">${j.kind==="video"?"▶":"▧"}</div><div class="qmeta"><b>${escapeHtml(j.prompt||j.model)}</b><small>${escapeHtml(j.model)} · ${new Date(j.createdAt).toLocaleString()}</small></div><span class="queuebadge ${cls}">${escapeHtml(label)}</span><button class="refresh" data-open-job="${escapeHtml(j.uuid)}" style="padding:6px 8px">Open</button></div>`;
+}).join("");
+list.querySelectorAll("[data-open-job]").forEach(b=>b.onclick=()=>openHistoryItem(b.dataset.openJob));
+}catch(e){
+list.innerHTML=`<div class="empty" style="max-width:none;padding:14px"><span>${escapeHtml(e.message)}</span></div>`;
+}finally{queueBusy=false}
 }
 $("refreshQueue").onclick=refreshQueue;
-let historyPage=1, historyHasNext=false, historyBusy=false, historyFilter="all", historyRows=[];
+let historyPage=1,historyHasNext=false,historyBusy=false,historyFilter="all",historyRows=[];
 function historyKind(x){
- const t=String(x.type||x.media_type||x.generation_type||"").toLowerCase();
- const m=String(x.model_name||x.model||"").toLowerCase();
- if(t.includes("image")||m.includes("image")||m.includes("banana")||m.includes("gpt-image"))return "image";
- if(t.includes("video")||m.includes("veo")||m.includes("seedance")||m.includes("kling")||m.includes("muse")||m.includes("video"))return "video";
- if(x.generated_image||x.image_url)return "image";
- if(x.generated_video||x.video_url)return "video";
- return "unknown";
+const t=String(x.type||x.media_type||x.generation_type||"").toLowerCase();
+const m=String(x.model_name||x.model||"").toLowerCase();
+if(t.includes("image")||m.includes("image")||m.includes("banana")||m.includes("gpt-image"))return "image";
+if(t.includes("video")||m.includes("veo")||m.includes("seedance")||m.includes("kling")||m.includes("muse")||m.includes("video"))return "video";
+if(x.generated_image||x.image_url)return "image";
+if(x.generated_video||x.video_url)return "video";
+return "unknown";
 }
 function renderHistory(){
- const list=$("historyList");
- const rows=historyRows.filter(x=>historyFilter==="all"||historyKind(x)===historyFilter);
- list.innerHTML=rows.length?rows.map(x=>{
-  const done=Number(x.status)===2,failed=Number(x.status)===3;
-  const uuid=x.uuid||x.id||x.history_uuid||"";
-  const type=historyKind(x);const icon=type==="video"?"▶":"▧";
-  const status=done?"Ready":failed?"Failed":x.status_desc||"Working";
-  const media=(x.generated_image||[])[0]|| (x.generated_video||[])[0] || {};
-  const thumbSrc=media.image_url||media.video_thumbnail||media.thumbnail_url||x.thumbnail_url||x.image_url||"";
-  const thumb=thumbSrc?`<div class="thumb"><img src="${escapeHtml(thumbSrc)}" alt="" loading="lazy"></div>`:`<div class="thumb">${icon}</div>`;
-  const prompt=x.input_text||x.prompt||x.model_name||"Generation";
-  return `<div class="historyitem" role="button" tabindex="0" data-history-id="${escapeHtml(uuid)}" data-history-type="${escapeHtml(type)}" title="Open this generation">${thumb}<div class="histmeta"><b>${escapeHtml(prompt)}</b><small>${escapeHtml(x.model_name||"")} · ${x.created_at?escapeHtml(new Date(x.created_at).toLocaleString()):""}</small></div><span class="pill ${done?"done":failed?"fail":""}">${escapeHtml(status)}</span></div>`
- }).join(""):'<div class="empty" style="max-width:none;padding:14px"><span>No '+(historyFilter==="all"?"generations":historyFilter+" generations")+' found on this page.</span></div>';
- $("historyPage").textContent=`Page ${historyPage}`;
- $("historyPrev").disabled=historyPage<=1;
- $("historyNext").disabled=!historyHasNext;
+const list=$("historyList");
+const rows=historyRows.filter(x=>historyFilter==="all"||historyKind(x)===historyFilter);
+list.innerHTML=rows.length?rows.map(x=>{
+const done=Number(x.status)===2,failed=Number(x.status)===3;
+const uuid=x.uuid||x.id||x.history_uuid||"";
+const type=historyKind(x);
+const icon=type==="video"?"▶":"▧";
+const status=done?"Ready":failed?"Failed":x.status_desc||"Working";
+const media=(x.generated_image||[])[0]||(x.generated_video||[])[0]||{};
+const thumbSrc=media.image_url||media.video_thumbnail||media.thumbnail_url||x.thumbnail_url||x.image_url||"";
+const thumb=thumbSrc?`<div class="thumb"><img src="${escapeHtml(thumbSrc)}" alt="" loading="lazy"></div>`:`<div class="thumb">${icon}</div>`;
+const prompt=x.input_text||x.prompt||x.model_name||"Generation";
+return `<div class="historyitem" role="button" tabindex="0" data-history-id="${escapeHtml(uuid)}" data-history-type="${escapeHtml(type)}" title="Open this generation">${thumb}<div class="histmeta"><b>${escapeHtml(prompt)}</b><small>${escapeHtml(x.model_name||"")} · ${x.created_at?escapeHtml(new Date(x.created_at).toLocaleString()):""}</small></div><span class="pill ${done?"done":failed?"fail":""}">${escapeHtml(status)}</span></div>`;
+}).join(""):'<div class="empty" style="max-width:none;padding:14px"><span>No '+(historyFilter==="all"?"generations":historyFilter+" generations")+' found on this page.</span></div>';
+$("historyPage").textContent=`Page ${historyPage}`;
+$("historyPrev").disabled=historyPage<=1;
+$("historyNext").disabled=!historyHasNext;
 }
 async function refreshHistory(reset=true){
- if(historyBusy)return;historyBusy=true;
- if(reset)historyPage=1;
- const list=$("historyList");list.innerHTML='<div class="empty" style="max-width:none;padding:14px"><span>Loading your generations…</span></div>';
- try{
-  const data=await api(`/api/histories?filter_by=all&items_per_page=12&page=${historyPage}`);
-  historyRows=Array.isArray(data.result)?data.result:[];
-  historyHasNext=historyRows.length===12 || (Number(data.total_pages)>historyPage);
-  renderHistory();
- }catch(e){list.innerHTML=`<div class="empty" style="max-width:none;padding:14px"><span>${escapeHtml(e.message)}</span></div>`;$("historyPrev").disabled=historyPage<=1;$("historyNext").disabled=true}
- finally{historyBusy=false}
+if(historyBusy)return;
+historyBusy=true;
+if(reset)historyPage=1;
+const list=$("historyList");
+list.innerHTML='<div class="empty" style="max-width:none;padding:14px"><span>Loading your generations…</span></div>';
+try{
+const data=await api(`/api/histories?filter_by=all&items_per_page=12&page=${historyPage}`);
+historyRows=Array.isArray(data.result)?data.result:[];
+historyHasNext=historyRows.length===12||(Number(data.total_pages)>historyPage);
+renderHistory();
+}catch(e){
+list.innerHTML=`<div class="empty" style="max-width:none;padding:14px"><span>${escapeHtml(e.message)}</span></div>`;
+$("historyPrev").disabled=historyPage<=1;
+$("historyNext").disabled=true;
+}finally{historyBusy=false}
 }
 async function openHistoryItem(uuid,type){
- if(!uuid){toast("This history item does not include a job ID, so it cannot be reopened.");return}
- try{
-  $("statusText").textContent="Loading saved generation…";$("progressText").textContent="";
-  showEmpty("Loading history item",`Retrieving ${uuid.slice(0,10)}…`);
-  const item=await api("/api/history/"+encodeURIComponent(uuid));
-  const videos=item.generated_video||[],images=item.generated_image||[];
-  if(videos.length){
-   const src=videos[0].video_url||videos[0].file_download_url;
-   $("previewArea").innerHTML=src?`<video class="result" controls playsinline src="${escapeHtml(src)}"></video><div style="margin-top:12px"><a href="${escapeHtml(src)}" download target="_blank" style="color:#ff6b75;font-size:12px">↧ Open / download video</a></div>`:"<div class='empty'>No video URL was returned for this item.</div>";
-  }else if(images.length){
-   $("previewArea").innerHTML=images.map(im=>{const src=im.image_url||im.file_download_url;return `<div style="margin-bottom:12px"><img class="result" src="${escapeHtml(src||"")}" alt="Generated image"><a href="${escapeHtml(im.file_download_url||im.image_url||"")}" target="_blank" download style="color:#ff6b75;font-size:12px">↧ Open / download image</a></div>`}).join("");
-  }else showEmpty("No preview available",item.error_message||item.status_desc||"The provider did not return a media URL for this history item.");
-  $("statusText").textContent=item.status_desc||"History item loaded";
-  $("progressText").textContent=item.status_percentage!=null?`${item.status_percentage}%`:Number(item.status)===2?"Complete":"";
- }catch(e){toast("Couldn't open history item: "+e.message);showEmpty("Could not load this item",e.message)}
+if(!uuid){toast("This history item does not include a job ID, so it cannot be reopened.");return}
+try{
+$("statusText").textContent="Loading saved generation…";
+$("progressText").textContent="";
+showEmpty("Loading history item",`Retrieving ${uuid.slice(0,10)}…`);
+const item=await api("/api/history/"+encodeURIComponent(uuid));
+const videos=item.generated_video||[],images=item.generated_image||[];
+if(videos.length){
+const src=videos[0].video_url||videos[0].file_download_url;
+$("previewArea").innerHTML=src?`<video class="result" controls playsinline src="${escapeHtml(src)}"></video><div style="margin-top:12px"><a href="${escapeHtml(src)}" download target="_blank" style="color:#ff6b75;font-size:12px">↧ Open / download video</a></div>`:"<div class='empty'>No video URL was returned for this item.</div>";
+}else if(images.length){
+$("previewArea").innerHTML=images.map(im=>{
+const src=im.image_url||im.file_download_url;
+return `<div style="margin-bottom:12px"><img class="result" src="${escapeHtml(src||"")}" alt="Generated image"><a href="${escapeHtml(im.file_download_url||im.image_url||"")}" target="_blank" download style="color:#ff6b75;font-size:12px">↧ Open / download image</a></div>`;
+}).join("");
+}else showEmpty("No preview available",item.error_message||item.status_desc||"The provider did not return a media URL for this history item.");
+$("statusText").textContent=item.status_desc||"History item loaded";
+$("progressText").textContent=item.status_percentage!=null?`${item.status_percentage}%`:Number(item.status)===2?"Complete":"";
+}catch(e){
+toast("Couldn't open history item: "+e.message);
+showEmpty("Could not load this item",e.message);
 }
-$("historyList").addEventListener("click",e=>{const row=e.target.closest("[data-history-id]");if(row)openHistoryItem(row.dataset.historyId,row.dataset.historyType)});
-$("historyList").addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){const row=e.target.closest("[data-history-id]");if(row){e.preventDefault();openHistoryItem(row.dataset.historyId,row.dataset.historyType)}}});
+}
+$("historyList").addEventListener("click",e=>{
+const row=e.target.closest("[data-history-id]");
+if(row)openHistoryItem(row.dataset.historyId,row.dataset.historyType);
+});
+$("historyList").addEventListener("keydown",e=>{
+if(e.key==="Enter"||e.key===" "){
+const row=e.target.closest("[data-history-id]");
+if(row){e.preventDefault();openHistoryItem(row.dataset.historyId,row.dataset.historyType)}
+}
+});
 $("historyPrev").onclick=()=>{if(historyPage>1){historyPage--;refreshHistory(false)}};
 $("historyNext").onclick=()=>{if(historyHasNext){historyPage++;refreshHistory(false)}};
 document.querySelectorAll("[data-history-filter]").forEach(btn=>btn.addEventListener("click",()=>{
- historyFilter=btn.dataset.historyFilter;
- document.querySelectorAll("[data-history-filter]").forEach(b=>b.classList.toggle("active",b===btn));
- renderHistory();
+historyFilter=btn.dataset.historyFilter;
+document.querySelectorAll("[data-history-filter]").forEach(b=>b.classList.toggle("active",b===btn));
+renderHistory();
 }));
 function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
-$("genForm").addEventListener("submit",generate);$("refreshHistory").onclick=()=>refreshHistory(true);
-setKind("video");refreshAccount();refreshHistory(true);refreshQueue();
+$("genForm").addEventListener("submit",generate);
+$("refreshHistory").onclick=()=>refreshHistory(true);
+setKind("video");
+refreshAccount();
+refreshHistory(true);
+refreshQueue();
+
+/* =====================================
+   SECRET GAME: BOT FLAP FACTORY ESCAPE
+===================================== */
+(() => {
+const secret=$("botFlapSecret");
+const overlay=$("botFlapOverlay");
+const canvas=$("botCanvas");
+const ctx=canvas.getContext("2d");
+const W=canvas.width,H=canvas.height;
+let robot={x:180,y:240,velocity:0};
+let pipes=[],score=0,frame=0,state="closed",animation=null;
+let best=Number(localStorage.getItem("botFlapBest")||0);
+$("botBest").textContent=best;
+
+function reset(){
+score=0;
+frame=0;
+pipes=[];
+robot={x:180,y:240,velocity:0};
+state="ready";
+draw();
+}
+function startLoop(){
+if(animation)cancelAnimationFrame(animation);
+animation=requestAnimationFrame(update);
+}
+function openGame(){
+overlay.classList.add("open");
+overlay.setAttribute("aria-hidden","false");
+reset();
+startLoop();
+}
+function closeGame(){
+overlay.classList.remove("open");
+overlay.setAttribute("aria-hidden","true");
+state="closed";
+if(animation)cancelAnimationFrame(animation);
+animation=null;
+}
+function flap(){
+if(state==="ready")state="playing";
+if(state==="over"){
+reset();
+state="playing";
+}
+if(state==="playing")robot.velocity=-7.2;
+}
+function drawBackground(){
+const gradient=ctx.createLinearGradient(0,0,0,H);
+gradient.addColorStop(0,"#202633");
+gradient.addColorStop(1,"#11131a");
+ctx.fillStyle=gradient;
+ctx.fillRect(0,0,W,H);
+
+// Factory windows
+for(let x=0;x<W;x+=110){
+ctx.fillStyle="#303744";
+ctx.fillRect(x,80,75,230);
+for(let y=100;y<290;y+=45){
+ctx.fillStyle="#e7a54a";
+ctx.fillRect(x+12,y,12,17);
+ctx.fillRect(x+37,y,12,17);
+}
+}
+
+// Chimneys
+ctx.fillStyle="#414653";
+ctx.fillRect(650,25,55,120);
+ctx.fillRect(740,55,45,90);
+
+// Smoke
+for(let i=0;i<5;i++){
+ctx.globalAlpha=.12;
+ctx.fillStyle="#aeb6c2";
+ctx.beginPath();
+ctx.arc(675+Math.sin(frame/30+i)*12,20-i*12,12+i*3,0,Math.PI*2);
+ctx.fill();
+}
+ctx.globalAlpha=1;
+
+// Factory floor
+ctx.fillStyle="#292d36";
+ctx.fillRect(0,430,W,70);
+ctx.strokeStyle="#606672";
+ctx.lineWidth=3;
+for(let x=-(frame*3%70);x<W;x+=70){
+ctx.beginPath();
+ctx.moveTo(x,445);
+ctx.lineTo(x+35,445);
+ctx.stroke();
+}
+ctx.fillStyle="#f1a43d";
+ctx.fillRect(0,426,W,4);
+}
+function drawPipe(pipe){
+const gap=165;
+const metal=ctx.createLinearGradient(pipe.x,0,pipe.x+75,0);
+metal.addColorStop(0,"#414957");
+metal.addColorStop(.35,"#b6bec9");
+metal.addColorStop(.65,"#596270");
+metal.addColorStop(1,"#252d38");
+
+// Upper pipe
+ctx.fillStyle=metal;
+ctx.fillRect(pipe.x,0,75,pipe.top);
+ctx.fillStyle="#252b35";
+ctx.fillRect(pipe.x-7,pipe.top-18,89,18);
+ctx.fillStyle="#c5cbd2";
+ctx.fillRect(pipe.x+8,0,5,Math.max(0,pipe.top-20));
+
+// Lower pipe
+const lower=pipe.top+gap;
+ctx.fillStyle=metal;
+ctx.fillRect(pipe.x,lower,75,H-lower);
+ctx.fillStyle="#252b35";
+ctx.fillRect(pipe.x-7,lower,89,18);
+ctx.fillStyle="#c5cbd2";
+ctx.fillRect(pipe.x+8,lower+20,5,Math.max(0,H-lower-20));
+}
+function draw(){
+drawBackground();
+pipes.forEach(drawPipe);
+
+// Robot
+ctx.font="42px system-ui";
+ctx.textAlign="center";
+ctx.fillText("🤖",robot.x,robot.y+15);
+
+// Score
+ctx.textAlign="left";
+ctx.font="bold 30px system-ui";
+ctx.fillStyle="#fff";
+ctx.fillText("Score: "+score,25,45);
+
+if(state==="ready"){
+ctx.textAlign="center";
+ctx.font="bold 28px system-ui";
+ctx.fillText("BOT FLAP",W/2,180);
+ctx.font="17px system-ui";
+ctx.fillText("Tap or press SPACE to start!",W/2,220);
+}
+if(state==="over"){
+ctx.fillStyle="#000000bb";
+ctx.fillRect(0,0,W,H);
+ctx.textAlign="center";
+ctx.fillStyle="#ff6470";
+ctx.font="bold 38px system-ui";
+ctx.fillText("FACTORY CRASH!",W/2,205);
+ctx.fillStyle="#fff";
+ctx.font="22px system-ui";
+ctx.fillText("Score: "+score,W/2,250);
+ctx.fillText("Press Start / Restart to play again",W/2,295);
+}
+}
+function collide(pipe){
+const gap=165;
+const overlaps=robot.x+15>pipe.x&&robot.x-15<pipe.x+75;
+return overlaps&&(robot.y-15<pipe.top||robot.y+15>pipe.top+gap);
+}
+function update(){
+if(state==="playing"){
+frame++;
+robot.velocity+=.36;
+robot.y+=robot.velocity;
+
+if(frame%95===0){
+pipes.push({x:W+20,top:75+Math.random()*190,passed:false});
+}
+pipes.forEach(pipe=>{
+pipe.x-=3.3;
+if(!pipe.passed&&pipe.x+75<robot.x){
+pipe.passed=true;
+score++;
+if(score>best){
+best=score;
+localStorage.setItem("botFlapBest",best);
+$("botBest").textContent=best;
+}
+}
+if(collide(pipe))state="over";
+});
+pipes=pipes.filter(pipe=>pipe.x>-100);
+if(robot.y>415||robot.y<0)state="over";
+}
+draw();
+if(state!=="closed"){
+animation=requestAnimationFrame(update);
+}else{
+animation=null;
+}
+}
+
+secret.addEventListener("click",openGame);
+$("botClose").addEventListener("click",closeGame);
+$("botRestart").addEventListener("click",()=>{
+reset();
+flap();
+});
+canvas.addEventListener("pointerdown",flap);
+document.addEventListener("keydown",event=>{
+if(!overlay.classList.contains("open"))return;
+if(event.code==="Space"){
+event.preventDefault();
+flap();
+}
+if(event.code==="Escape")closeGame();
+});
+})();
 </script>
 </body>
 </html>
